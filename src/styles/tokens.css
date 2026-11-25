@@ -1,0 +1,49 @@
+:root {
+  color-scheme: light;
+
+  /* Sindoor, marigold, tulsi and hand-made paper, taken from the paintings */
+  --paper: oklch(96.5% 0.025 88);
+  --paper-deep: oklch(92.5% 0.045 86);
+  --ink: oklch(25% 0.045 40);
+  --ink-soft: oklch(42% 0.05 45);
+  --sindoor: oklch(49% 0.18 31);
+  --sindoor-deep: oklch(37% 0.13 29);
+  --marigold: oklch(78% 0.155 75);
+  --marigold-soft: oklch(89% 0.09 83);
+  --tulsi: oklch(42% 0.08 150);
+  --on-sindoor: oklch(97% 0.03 90);
+  --rule: oklch(78% 0.075 75);
+
+  --font-title: "Rozha One", "Tiro Devanagari Hindi", serif;
+  --font-verse: "Tiro Devanagari Hindi", Georgia, serif;
+  --font-ui: "Hanken Grotesk", system-ui, sans-serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 40px;
+  --space-7: 64px;
+
+  --container: 1240px;
+  --gutter: 40px;
+  --header: 72px;
+  --reader-scale: 1;
+
+  /* One marigold petal, repeated as the border of the cloth */
+  --petals: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='18'%3E%3Cpath d='M0 0h28v2H0z' fill='%23a92f1c'/%3E%3Cpath d='M1 2h26c0 8-5 12-13 15C6 14 1 10 1 2z' fill='%23eda42e'/%3E%3Cpath d='M8 2h12c0 5-2 8-6 11-4-3-6-6-6-11z' fill='%23a92f1c'/%3E%3C/svg%3E");
+}
+
+@media (max-width: 60rem) {
+  :root {
+    --gutter: 24px;
+    --header: 124px;
+  }
+}
+
+@media (max-width: 40rem) {
+  :root {
+    --gutter: 16px;
+  }
+}
