@@ -48,6 +48,22 @@ export default function App() {
     if (target) document.fonts.ready.then(() => target.scrollIntoView({ behavior: 'instant' }))
   }, [])
 
+  // Passages off screen are drawn only when they come near (content-visibility
+  // in index.css), so a long smooth scroll changes the page's height on the
+  // way and lands short. Long jumps go instantly; short ones stay smooth.
+  useEffect(() => {
+    const onClick = (event) => {
+      const link = event.target.closest?.('a[href^="#"]')
+      const target = link && document.getElementById(decodeURIComponent(link.hash.slice(1)))
+      if (!target || Math.abs(target.getBoundingClientRect().top) < window.innerHeight * 2) return
+      const root = document.documentElement
+      root.style.scrollBehavior = 'auto'
+      requestAnimationFrame(() => requestAnimationFrame(() => root.style.removeProperty('scroll-behavior')))
+    }
+    document.addEventListener('click', onClick)
+    return () => document.removeEventListener('click', onClick)
+  }, [])
+
   const toggleSaved = useCallback(
     (id) => setSavedIds((ids) => (ids.includes(id) ? ids.filter((other) => other !== id) : [...ids, id])),
     [setSavedIds],
@@ -70,8 +86,9 @@ export default function App() {
       </a>
       <header className="masthead">
         <div className="container masthead__row">
-          <a className="masthead__title" href="#top" aria-label="Sundarkand, back to top">
+          <a className="masthead__title" href="#top">
             <span lang="hi">॥ श्री राम ॥</span>
+            <span className="visually-hidden">, back to top</span>
           </a>
           <button type="button" className="button masthead__contents" onClick={() => setContentsOpen(true)}>
             Contents

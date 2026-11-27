@@ -12,8 +12,9 @@ function Verse({ verse, saved, showRoman, onToggleSaved }) {
       className={verse.closing ? 'verse verse--closing' : 'verse'}
       aria-label={`${verse.type}, verse ${verse.number}`}
     >
-      <a className="verse__number" href={`#${verse.id}`} aria-label={`Link to verse ${verse.number}`}>
+      <a className="verse__number" href={`#${verse.id}`}>
         {toDevanagariNumber(verse.number)}
+        <span className="visually-hidden">, link to verse {verse.number}</span>
       </a>
       <div className="verse__text">
         <p className="verse__devanagari" lang={language}>

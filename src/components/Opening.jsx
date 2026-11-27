@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import darbar from '../assets/ram-darbar.webp'
+import darbarSmall from '../assets/ram-darbar-700.webp'
 
 export default function Opening({ startHref, startLabel }) {
   return (
@@ -26,6 +27,8 @@ export default function Opening({ startHref, startLabel }) {
         <figure className="opening__art">
           <img
             src={darbar}
+            srcSet={`${darbarSmall} 700w, ${darbar} 1000w`}
+            sizes="(max-width: 48rem) 360px, 425px"
             width="1000"
             height="1459"
             fetchPriority="high"

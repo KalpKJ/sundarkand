@@ -45,7 +45,7 @@ export default function Toolbar({
         <button
           type="button"
           className="button"
-          aria-label="Smaller text"
+          aria-label="A−, smaller text"
           disabled={sizeIndex === 0}
           onClick={() => onTextSizeChange(textSizes[sizeIndex - 1])}
         >
@@ -54,7 +54,7 @@ export default function Toolbar({
         <button
           type="button"
           className="button"
-          aria-label="Larger text"
+          aria-label="A+, larger text"
           disabled={sizeIndex === textSizes.length - 1}
           onClick={() => onTextSizeChange(textSizes[sizeIndex + 1])}
         >

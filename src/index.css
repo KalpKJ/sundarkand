@@ -309,6 +309,11 @@ figcaption {
   border: 2px solid var(--sindoor);
   outline: 1px solid var(--marigold);
   outline-offset: -7px;
+  /* The whole text is one long page. Passages off screen skip layout and
+     paint until they come near, and the browser remembers each one's real
+     height once it has been drawn. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1400px;
 }
 
 .passage + .passage {
